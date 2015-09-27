@@ -8,4 +8,8 @@
 		insert into member values(#{id},#{password},#{name},#{age},#{address},#{mail},#{mailing},
 		#{phone},#{gender},#{birth},#{grade},#{registerDate})
 	</insert>
+	
+	<select id="login" parameterType="java.util.HashMap" resultType="com.orangeroad.member.dto.Member">
+		select * from member where id = #{id} and password = #{pwd}
+	</select>
 </mapper>

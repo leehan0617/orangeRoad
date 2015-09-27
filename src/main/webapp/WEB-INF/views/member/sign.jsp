@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>sign.jsp</title>
+<title></title>
 </head>
 <body>
 	sign.jsp
 	
-	<form action="${root}/member/signOk" method="post">
+	<form action="${root}/member/sign" method="post">
 		아이디<input type="text" name="id"/>
 		비밀번호<input type="password" name="password"/>
 		name<input type="text" name="name"/>

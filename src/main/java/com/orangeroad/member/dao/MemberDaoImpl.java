@@ -1,5 +1,7 @@
 package com.orangeroad.member.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,5 +22,10 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public void sign(Member member) {
 		sqlSession.insert("MemberMapper.sign",member);
+	}
+
+	@Override
+	public Member login(HashMap<String, String> hMap) {
+		return sqlSession.selectOne("MemberMapper.login",hMap);
 	}
 }

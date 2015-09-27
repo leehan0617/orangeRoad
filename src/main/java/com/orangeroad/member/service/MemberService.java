@@ -6,4 +6,6 @@ public interface MemberService {
 
 	public void sign(ModelAndView mav);
 
+	public void login(ModelAndView mav);
+
 }

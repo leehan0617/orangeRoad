@@ -1,7 +1,10 @@
 package com.orangeroad.member.service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +33,22 @@ public class MemberServiceImpl implements MemberService{
 		System.out.println("생일 처리 Front에서 변경해야함");
 		member.setBirth(new Date());
 		dao.sign(member);
+	}
+
+	@Override
+	public void login(ModelAndView mav) {
+		Map<String,Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
+		HashMap<String , String> hMap = new HashMap<String , String>();
+		hMap.put("id", id);
+		hMap.put("pwd" , pwd);
+		
+		Member member = dao.login(hMap);
+		mav.addObject("member" , member);
 	}
 
 }

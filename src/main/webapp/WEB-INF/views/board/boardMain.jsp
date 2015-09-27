@@ -4,12 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>signOk.jsp</title>
+<title></title>
 </head>
 <body>
-	<script>
-		alert("가입완료");
-		location.href="${root}/mju/";
-	</script>
+	게시판 메인 ㅋ 
 </body>
 </html>

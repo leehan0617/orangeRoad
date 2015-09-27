@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/WEB-INF/views/common">
+
+	<excludes>
+		<!-- 만약에 제외할 페이지 있다면 이걸 사용 -->
+		<!--<pattern>/check/*</pattern>-->
+	</excludes>
+	
+	<decorator name="common" page="common.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+</decorators>
+
