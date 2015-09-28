@@ -4,7 +4,32 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="BoardMapper">
-	<select id="viewBoard" resultType="java.util.List">
-		select * from board
+	<select id="getAllBoards" resultType="int">
+		select count(*) from board
 	</select>
+	
+	<select id="viewBoard" parameterType="java.util.HashMap" resultType="com.orangeroad.board.dto.Board">
+		select * from board order by boardNumber desc limit #{startRow},#{boardSize}
+	</select>
+	
+	<select id="readBoard" parameterType="int" resultType="com.orangeroad.board.dto.Board">
+		select * from board where boardNumber = #{boardNumber}
+	</select>
+	
+	<insert id="writeBoard" parameterType="com.orangeroad.board.dto.Board">
+		insert into board (title,content,registerDate) values (#{title} , #{content} , CURDATE())
+	</insert>
+	
+	<select id="getBoard" parameterType="int" resultType="com.orangeroad.board.dto.Board">
+		select * from board where boardNumber = #{boardNumber}
+	</select>
+	
+	<update id="updateBoard" parameterType="com.orangeroad.board.dto.Board">
+		update board set title = #{title} , content = #{content} , registerDate = CURDATE() 
+		where boardNumber = #{boardNumber} 
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from board where boardNumber = #{boardNumber}
+	</delete>
 </mapper>
